@@ -15,4 +15,21 @@ describe('formatQuery', () => {
       "test=test%20test&test2=test%26test%3Dtest&test3=test%25test%2520"
     );
   });
+  it('hasOwnProperty', () => {
+    assert.equal(
+      formatQuery(Object.create({test: 'test'})),
+      ""
+    );
+  });
+  it('hasOwnProperty', () => {
+    const test = Object.create(null);
+    test.test = 'test';
+    assert.equal(formatQuery(test), "test=test");
+  });
+  it('hasOwnProperty undefined', () => {
+    const test = Object.create(null);
+    test.hasOwnProperty = undefined;
+    test.test = 'test';
+    assert.equal(formatQuery(test), "test=test");
+  });
 });

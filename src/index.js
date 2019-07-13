@@ -1,7 +1,7 @@
 export default (obj) => {
-  var parts = [];
+  let parts = [];
   for (let i in obj) {
-    if (obj.hasOwnProperty(i)) {
+    if (Object.prototype.hasOwnProperty.call(obj, i) && typeof obj[i] !== 'undefined') {
       parts.push(encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]));
     }
   }

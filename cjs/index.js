@@ -9,7 +9,7 @@ var _default = function _default(obj) {
   var parts = [];
 
   for (var i in obj) {
-    if (obj.hasOwnProperty(i)) {
+    if (Object.prototype.hasOwnProperty.call(obj, i) && typeof obj[i] !== 'undefined') {
       parts.push(encodeURIComponent(i) + '=' + encodeURIComponent(obj[i]));
     }
   }
